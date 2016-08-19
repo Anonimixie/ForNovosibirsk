@@ -93,5 +93,14 @@ use yii\helpers\Html;
                 </table>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Информация
+            </div>
+            <div class="panel-body">
+                Вся логика переводов находится в файле <code>basic/models/Payments.php</code>
+            </div>
+        </div>
     </div>
 </div>
