@@ -24,10 +24,6 @@ class m160819_202735_init_db extends Migration
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8');
 
-
-        $this->execute('ALTER TABLE `comments` ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE');
-
-
         // set data
         $this->execute('INSERT INTO `comments` (`id`, `user_id`, `text`) VALUES
 (1, 1, \'comment1\'),
