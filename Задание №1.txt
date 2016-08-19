@@ -1,0 +1,24 @@
+Запрос, который выведет имя пользователя и его последний коммент:
+
+Способ №1 (Подзапросы):
+SELECT  `users`.name, (
+	SELECT  `text` 
+	FROM  `comments` 
+	WHERE  `comments`.user_id =  `users`.id
+	ORDER BY  `id` DESC 
+	LIMIT 1
+) AS  `last_comment` 
+FROM  `users`
+
+
+
+Способ №2(На JOIN'ах):
+SELECT  `users`.`name` ,  `comments`.`text` 
+FROM  `users` 
+LEFT JOIN  `comments` ON ( (
+
+SELECT MAX(  `comments`.id ) 
+FROM  `comments` 
+WHERE  `comments`.user_id =  `users`.id
+GROUP BY  `comments`.user_id ) =  `comments`.id
+)
